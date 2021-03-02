@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 var uuid = require("uuid")
 var db =require("../config/dbConfig")
+
+
  exports.signup = async(req,res)=>{
      console.log("insignup")
      await db.query(`SELECT * FROM users WHERE LOWER(username) = LOWER(${db.escape(req.body.username)}) `,async(err,result)=>{
